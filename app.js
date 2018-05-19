@@ -17,3 +17,10 @@ app.controller("mainCtrl", ["$scope", function($scope) {
         }
       ];
 }]);
+
+/*
+The template (the part of the view containing the bindings and presentation logic)
+  acts as a blueprint for how our data should be organized and presented to the user. 
+The controller provides the context in which the bindings are evaluated
+  and applies behavior and logic to our template.
+*/
