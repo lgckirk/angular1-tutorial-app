@@ -4,10 +4,10 @@ angular.module("phoneList")
     .component("phoneList", {
         // note url is relative to index.html
         // note browser will make a request to fetch template
-        //    there are some ways to lower this overhead
-        templateUrl: "./phone-list/phone-list.template.html",
+        //    there are some ways to lower this overhead, goodle it
+        templateUrl: "./modules/phone-list/phone-list.template.html",
 
-        // note we don't need $scope
+        // note we don't use $scope
         // we assign data to controller function to avoid external influence
         controller: function() {
             this.phones = [
@@ -34,4 +34,4 @@ angular.module("phoneList")
  */
 
  // NOTE: an instance of a component has its own isolated scope, within this scope,
- //         there's the controller function, which has another level of scope
+ //         there's the controller function, which has its properties, methods, and closure

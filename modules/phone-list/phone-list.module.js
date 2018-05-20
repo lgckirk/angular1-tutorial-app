@@ -10,5 +10,5 @@ The reason to do it this way is for modularity -
         by injecting a <script> tag
 
 
-@In short, a module is a feature, register all feature related things there!
+@In short, a module denotes a feature, register all feature related things there!
 */
