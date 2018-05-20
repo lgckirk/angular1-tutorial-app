@@ -1,7 +1,33 @@
-<!-- $ctrl is a reference to the controller -->
-<ul ng-repeat="phone in $ctrl.phones track by $index">
-    <li>
-        <span>{{phone.name}}</span>
-        <p>{{phone.snippet}}</p>
-    </li>
-</ul>
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- side bar -->
+        <!-- DON'T forget to use $ctrl, NOT $scope -->
+        <div class="col-md-2">
+            <div class="search-key">
+                Search:
+                <input type="text" ng-model="$ctrl.searchKey">
+            </div>
+            <div class="sort-key">
+                Sort by:
+                <select ng-model="$ctrl.sortKey" ng-options="term.label for term in $ctrl.sortTerms"></select>
+            </div>
+        </div>
+
+        
+        <!-- page body area -->
+        <div class="col-md-10">
+            <div class="phones">
+                <!-- angular filter takes an array (only) and return the filtered array -->
+                <!-- NOTE: "track by" must be the last phrase -->
+                <ul ng-repeat="phone in $ctrl.phones | filter:$ctrl.searchKey | orderBy: $ctrl.sortKey.value
+                    track by $index">
+                    <li>
+                        <span>{{phone.name}}</span>
+                        <p>{{phone.snippet}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
