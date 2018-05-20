@@ -34,7 +34,6 @@ angular.module("phoneList")
                 value: '-age'
               }
             ];
-            this.arr = [1,2];
             this.sortKey = this.sortTerms[1];
         }
     });
