@@ -18,12 +18,26 @@
         <!-- page body area -->
         <div class="col-md-10">
             <div class="phones">
-                <!-- angular filter takes an array (only) and return the filtered array -->
                 <!-- NOTE: "track by" must be the last phrase -->
+                <!-- 
+                    NOTE: {{}} can occur anywhere in the html except src=""
+                    that's why we have the ngSrc directive
+                -->
+                <!--
+                    in URL, the part after '#' (e.g. xxx/#/path/path) is NOT sent to the server
+                        but is available to JS.
+                    it's a technique used to have the page display different things without reloading.
+                        (called routing, as we will do in next step)
+                    it solves the problem ajax has: content not bookmarkable
+                -->
                 <ul ng-repeat="phone in $ctrl.phones | filter:$ctrl.searchKey | orderBy: $ctrl.sortKey.value
-                    track by $index">
+                    track by $index" class="phone-list">
                     <li>
-                        <span>{{phone.name}}</span>
+                        <a href="#/phones/{{phone.id}}">
+                            <img ng-src="{{'./resources/'+phone.imageUrl}}" alt="{{phone.name}}"
+                                class="phone-thumbnail">
+                        </a>
+                        <a href="#/phones/{{phone.id}}">{{phone.name}}</a>
                         <p>{{phone.snippet}}</p>
                     </li>
                 </ul>

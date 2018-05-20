@@ -5,3 +5,23 @@ body {
 .sort-key {
     padding: 2vh;
 }
+
+.phone-list {
+    list-style: none;
+}
+
+.phone-list li {
+    clear: both;
+    height: 15vh;
+    margin: 2vh;
+    border: 1px solid #888888;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.phone-thumbnail {
+    float: left;
+    height: 100%;
+    width: auto;
+    margin-right: 1vw;
+}
