@@ -1,13 +1,19 @@
 angular.module("phoneDetail")
     .component("phoneDetail", {
-        template: "<p>TBD, phone id is: {{$ctrl.phoneId}}</p>",
-
+        templateUrl: "./modules/phone-detail/phone-detail.template.html",
         // $routeParams service is provided by the ngRoute module
         controller: [
+            "$http",
             "$routeParams",
-            function($routeParams) {
-                // this comes from routing: /phones/:phoneId
-                this.phoneId = $routeParams.phoneId;
+            function($http, $routeParams) {
+                var self = this;
+                // this is extracted from the current route (:phoneId) by the $route service
+                var phoneId = $routeParams.phoneId;
+
+                $http.get("./resources/phones/"+phoneId+".json")
+                .then(function(response){
+                    self.info = response.data;
+                });
             }
         ]
     });
