@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-4">
             <div class="phone-detail-thumbnail">
-                <img ng-src="{{'./resources/'+$ctrl.info.images[0]}}" alt="">
+                <img ng-src="{{$ctrl.thumbnail}}" alt="">
             </div>
         </div>
 
@@ -11,7 +11,10 @@
             <h1 class="phone-detail-title">{{$ctrl.info.name}}</h1>
             <p>{{$ctrl.info.description}}</p>
             <ul class="phone-detail-image">
-                <li ng-repeat="url in $ctrl.info.images track by $index"><img ng-src="{{'./resources/'+url}}"></li>
+                <li ng-repeat="url in $ctrl.info.images track by $index">
+                    <!-- bind a callback to the click event -->
+                    <img ng-src="{{'./resources/'+url}}" ng-click="$ctrl.setThumbnail(url)">
+                </li>
             </ul>
         </div>
     </div>
@@ -50,9 +53,9 @@
             <h5>Bluetooth:</h5>
             <p>{{$ctrl.info.connectivity.bluetooth}}</p>
             <h5>Infrared:</h5>
-            <p>{{$ctrl.info.connectivity.infrared ? "Include" : "Not Include"}}</p>
+            <p>{{$ctrl.info.connectivity.infrared | checkmark}}</p>
             <h5>GPS:</h5>
-            <p>{{$ctrl.info.connectivity.gps ? "Include" : "Not Include"}}</p>
+            <p>{{$ctrl.info.connectivity.gps | checkmark}}</p>
         </div>
 
         <div class="col-md-2 phone-detail-spec-item">
