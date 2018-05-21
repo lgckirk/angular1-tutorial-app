@@ -2,11 +2,8 @@
 angular.module("phoneList")
     .component("phoneList", {
         templateUrl: "./modules/phone-list/phone-list.template.html",
-        controller: ["$http", function($http) {
-            var self = this;
-            $http.get("./resources/phones/phones.json").then(function(response){
-              self.phones = response.data;
-            });
+        controller: ["phone", function(phone) {
+            this.phones = phone.doQuery();
 
             this.sortTerms = [
               {

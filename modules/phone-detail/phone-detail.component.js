@@ -2,9 +2,9 @@ angular.module("phoneDetail")
     .component("phoneDetail", {
         templateUrl: "./modules/phone-detail/phone-detail.template.html",
         controller: [
-            "$http",
+            "phone",
             "$routeParams",
-            function($http, $routeParams) {
+            function(phone, $routeParams) {
                 var self = this;
                 // this is extracted from the current route (:phoneId) by the $route service
                 var phoneId = $routeParams.phoneId;
@@ -13,11 +13,15 @@ angular.module("phoneDetail")
                     self.thumbnail = './resources/' + url;
                 }
 
-                $http.get("./resources/phones/"+phoneId+".json")
-                .then(function(response){
-                    self.info = response.data;
-                    self.setThumbnail(response.data.images[0]);
+                // NOTE:
+                // even though it looks like synchronous code but it isn't
+                // What IS returned synchronously is a "future" object
+                // When XHR receives data, it will be filled,
+                //      until then, it functions like a "placeholder"
+                self.info = phone.get({phoneId: $routeParams.phoneId}, function(phone){
+                    self.setThumbnail(phone.images[0]);
                 });
+
             }
         ]
     });
