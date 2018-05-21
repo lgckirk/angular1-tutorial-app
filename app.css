@@ -1,0 +1,96 @@
+body {
+    padding-top: 3vh;
+}
+
+.sort-key {
+    padding: 2vh;
+}
+
+.phone-list {
+    list-style: none;
+}
+
+.phone-list li {
+    clear: both;
+    height: 15vh;
+    margin: 2vh;
+    border: 1px solid #888888;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+.phone-thumbnail {
+    float: left;
+    height: 100%;
+    width: auto;
+    margin-right: 1vw;
+}
+
+.phone-detail {
+    padding: 8px 17px;
+}
+
+.phone-detail-thumbnail {
+    border: 1px solid black;
+    width: 30vw;
+    height: 30vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone-detail-thumbnail img {
+    display: block;
+    width: 80%;
+    height: auto;
+}
+
+.phone-detail-title {
+    border-bottom: 1px solid black;
+}
+
+.phone-detail-image {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 2vw 0 2vw;
+}
+
+.phone-detail-image li  {
+    border: 1px solid black;
+    list-style: none;
+    width: 8vw;
+    height: 8vw;
+    margin: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone-detail-image img {
+    display: block;
+    width: 80%;
+    height: auto;
+}
+
+.phone-detail-spec {
+    margin-top: 20px;
+}
+
+.phone-detail-spec h4 {
+    font-weight: bold;
+}
+
+.phone-detail-spec h5 {
+    font-weight: bold;
+}
+
+.phone-detail-spec ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.phone-detail-spec-item {
+    margin-bottom: 20px;
+}

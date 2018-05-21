@@ -1,0 +1,78 @@
+
+<div class="container-fluid phone-detail">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="phone-detail-thumbnail">
+                <img ng-src="{{$ctrl.thumbnail}}" alt="">
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <h1 class="phone-detail-title">{{$ctrl.info.name}}</h1>
+            <p>{{$ctrl.info.description}}</p>
+            <ul class="phone-detail-image">
+                <li ng-repeat="url in $ctrl.info.images track by $index">
+                    <img ng-src="{{'./resources/'+url}}" ng-click="$ctrl.setThumbnail(url)">
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row phone-detail-spec">
+        <div class="col-md-2 phone-detail-spec-item">
+            <h4>Availability and Networks</h4>
+            <h5>Availability:</h5>
+            <ul>
+                <li ng-repeat="x in $ctrl.info.availability">{{x}}</li>
+            </ul>
+        </div>
+
+        <div class="col-md-2 phone-detail-spec-item">
+            <h4>Battery</h4>
+            <h5>Type:</h5>
+            <p>{{$ctrl.info.battery.type}}</p>
+            <h5>Talk Time:</h5>
+            <p>{{$ctrl.info.battery.talkTime}}</p>
+            <h5>Standby Time:</h5>
+            <p>{{$ctrl.info.battery.standbyTime}}</p>
+        </div>
+
+        <div class="col-md-2 phone-detail-spec-item">
+            <h4>Storage and Memory</h4>
+            <h5>RAM:</h5>
+            <p>{{$ctrl.info.storage.ram}}</p>
+            <h5>Internal Storage:</h5>
+            <p>{{$ctrl.info.storage.flash}}</p>
+        </div>
+
+        <div class="col-md-2 phone-detail-spec-item">
+            <h4>Connectivity</h4>
+            <h5>WiFi:</h5>
+            <p>{{$ctrl.info.connectivity.wifi}}</p>
+            <h5>Bluetooth:</h5>
+            <p>{{$ctrl.info.connectivity.bluetooth}}</p>
+            <h5>Infrared:</h5>
+            <p>{{$ctrl.info.connectivity.infrared | checkmark}}</p>
+            <h5>GPS:</h5>
+            <p>{{$ctrl.info.connectivity.gps | checkmark}}</p>
+        </div>
+
+        <div class="col-md-2 phone-detail-spec-item">
+            <h4>Android</h4>
+            <h5>OS:</h5>
+            <p>{{$ctrl.info.android.os}}</p>
+            <h5>UI:</h5>
+            <p>{{$ctrl.info.android.ui}}</p>
+        </div>
+
+        <div class="col-md-2 phone-detail-spec-item">
+            <h4>Size and Weight</h4>
+            <h5>Dimensions:</h5>
+            <ul>
+                <li ng-repeat="x in $ctrl.info.sizeAndWeight.dimensions">{{x}}</li>
+            </ul>
+            <h5>Weight:</h5>
+            <p>{{$ctrl.info.sizeAndWeight.weight}}</p>
+        </div>
+    </div>
+</div>

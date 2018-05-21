@@ -1,0 +1,34 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- side bar -->
+        <div class="col-md-2">
+            <div class="search-key">
+                Search:
+                <input type="text" ng-model="$ctrl.searchKey">
+            </div>
+            <div class="sort-key">
+                Sort by:
+                <select ng-model="$ctrl.sortKey" ng-options="term.label for term in $ctrl.sortTerms"></select>
+            </div>
+        </div>
+
+        
+        <!-- page body area -->
+        <div class="col-md-10">
+            <div class="phones">
+                <ul ng-repeat="phone in $ctrl.phones | filter:$ctrl.searchKey | orderBy: $ctrl.sortKey.value
+                    track by $index" class="phone-list">
+                    <li>
+                        <a href="#!/phones/{{phone.id}}">
+                            <img ng-src="{{'./resources/'+phone.imageUrl}}" alt="{{phone.name}}"
+                                class="phone-thumbnail">
+                        </a>
+                        <a href="#!/phones/{{phone.id}}">{{phone.name}}</a>
+                        <p>{{phone.snippet}}</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
