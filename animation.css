@@ -1,0 +1,87 @@
+/*
+Two sets of animation classes:
+1. ng-${event}           - represent the style at the beginning of the animation
+2. ng-${event}-active    - represent the style at the end of the animation
+*/
+
+
+/* set transition for item added, removed, moved event */
+.phone-list-item.ng-enter,
+.phone-list-item.ng-leave,
+.phone-list-item.ng-move
+{
+    transition: 0.5s linear all;
+}
+
+/* style before item added/moved */
+.phone-list-item.ng-enter,
+.phone-list-item.ng-move
+{
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+/* style after item added/moved */
+.phone-list-item.ng-enter.ng-enter-active,
+.phone-list-item.ng-move.ng-move-active
+{
+    height: 13vh;
+    opacity: 1;
+}
+
+/* style before item removed */
+.phone-list-item.ng-leave {
+    opacity: 1;
+    overflow: hidden;
+}
+
+/* style after item removed */
+.phone-list-item.ng-leave.ng-leave-active {
+    opacity: 0;
+    height: 0;
+}
+
+
+/* --- view fade in fade out --- */
+
+
+.view-container {
+    position: relative;
+}
+
+/* before the old view is removed or the new view is created */
+/* NOTE this 2 processes happen simultaneously */
+.view-frame.ng-enter,
+.view-frame.ng-leave
+{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    background: white;
+}
+
+/* behavior of the new view before it's created */
+.view-frame.ng-enter {
+  animation: 1s fade-in;
+  z-index: 100;
+}
+
+/* behavior of the old view before it gets removed */
+.view-frame.ng-leave {
+    animation: 1s fade-out;
+    z-index: 99;
+}
+
+/* our custom animations */
+/* NOTE this 2 animations are run simultaneously */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fade-out {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}

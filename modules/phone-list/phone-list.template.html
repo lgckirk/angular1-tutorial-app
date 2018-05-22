@@ -17,9 +17,9 @@
         <!-- page body area -->
         <div class="col-md-10">
             <div class="phones">
-                <ul ng-repeat="phone in $ctrl.phones | filter:$ctrl.searchKey | orderBy: $ctrl.sortKey.value
-                    track by $index" class="phone-list">
-                    <li>
+                <ul class="phone-list">
+                    <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.searchKey | orderBy: $ctrl.sortKey.value"
+                        class="phone-list-item">
                         <a href="#!/phones/{{phone.id}}">
                             <img ng-src="{{'./resources/'+phone.imageUrl}}" alt="{{phone.name}}"
                                 class="phone-thumbnail">

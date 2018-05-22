@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="./app.css">
+        <link rel="stylesheet" href="./animation.css">
 
         <!-- core js - main module and main module config (routing) -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
@@ -14,6 +15,7 @@
         <!-- dependency modules -->
         <script src="./modules/ngRoute/angular-route.js"></script>
         <script src="./modules/ngResource/angular-resource.js"></script>
+        <script src="./modules/ngAnimate/angular-animate.js"></script>
         <script src="./modules/core/core.module.js"></script>
         <script src="./modules/core/checkmark/checkmark.filter.js"></script>
         <script src="./modules/core/phone/phone.module.js"></script>
@@ -24,7 +26,8 @@
         <script src="./modules/phone-detail/phone-detail.component.js"></script>
     </head>
     <body>
-        <!-- ngView directive will create a new scope -->
-        <div ng-view></div>
+        <div class="view-container">
+            <div ng-view class="view-frame"></div>
+        </div>
     </body>
 </html>
