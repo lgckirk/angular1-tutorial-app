@@ -20,9 +20,9 @@
             <div class="phones">
                 <!-- angular filter takes an array (only) and return the filtered array -->
                 <!-- NOTE: "track by" must be the last phrase -->
-                <ul ng-repeat="phone in $ctrl.phones | filter:$ctrl.searchKey | orderBy: $ctrl.sortKey.value
-                    track by $index">
-                    <li>
+                <ul>
+                    <li ng-repeat="phone in $ctrl.phones | filter:$ctrl.searchKey | orderBy: $ctrl.sortKey.value
+                        track by $index">
                         <span>{{phone.name}}</span>
                         <p>{{phone.snippet}}</p>
                     </li>
